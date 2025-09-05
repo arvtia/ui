@@ -1,6 +1,7 @@
 import { Children } from "react";
 import { motion, percent } from "framer-motion";
 import { useState } from "react";
+import StorageBarChart from "./Charts";
 
 export const filesData = [
   {
@@ -34,7 +35,11 @@ export function MainGrid() {
           <Card2/>
         </CardsWithIn>
         <CardsWithIn className="cols-1">
+          {/* <FolderStack/> */}
           <Card3/>
+        </CardsWithIn>
+        <CardsWithIn className="cols-1 row-span-2">
+          <Card4/> 
         </CardsWithIn>
       </Grids>
     </BendoGrid>
@@ -79,11 +84,14 @@ export function Description (props) {
 
 export function Grids({ children, className = "" }) {
   return (
-    <div className={`grid ${className}`}>
+    <div
+      className={`grid gap-1 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 row ${className}`}
+    >
       {children}
     </div>
   );
 }
+
 
 
 export function Card1(){
@@ -230,32 +238,20 @@ export function Card2 () {
   );
 }
 
-export function Card3 () {
+export function Card3(){
   return(
     <>
-      <div className=" h-52 w-full space-y-2">
-        {
-          filesData.map(
-            (item, idx)=>(
-              <>
-                <div className="bg-white p-4">
-                  <div className="bg-white rounded-md p-4 flex gap-4 justify-between" key={idx}>
-                    <div className="mr-auto flex flex-row gap-4">
-                      <i className={` text-lg ${item.icons}`}></i>
-                      <p className="text-xl text-indig">{item.name}</p>
-                    </div>
-                    <i className="bi bi-list bg-white text-neutral-800 rounded-full"></i>
-
-                  </div>
-                  <p className="text-sm text-neutral-400 font-semibold">Files: {item.filesCount}</p>
-                  <p className="text-md font-semibold text-neutral-700">{item.lastModified}</p>
-
-                </div>
-              </>
-            )
-          )
-        }
+      <div className=" w-full h-fit">
+        <img src="assests/images/folderui.png" alt="folder ui" className="" />
       </div>
+    </>
+  )
+}
+
+export function Card4(){
+  return(
+    <>
+      <StorageBarChart/>
     </>
   )
 }
