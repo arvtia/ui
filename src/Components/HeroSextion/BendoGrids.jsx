@@ -30,6 +30,7 @@ export function MainGrid() {
       <Grids className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  divid-x divide-y py-10">
         <CardsWithIn className="cols-1">
           <Card1/>
+          <Card4 className="mt-5"/> 
         </CardsWithIn>
         <CardsWithIn  className="cols-1 ">
           <Card2/>
@@ -39,7 +40,7 @@ export function MainGrid() {
           <Card3/>
         </CardsWithIn>
         <CardsWithIn className="cols-1 row-span-2">
-          <Card4/> 
+          
         </CardsWithIn>
       </Grids>
     </BendoGrid>
@@ -186,7 +187,9 @@ export function Card2 () {
           <div className="p-4 bg-neutral-200 rounded-md">
             <div className="flex flex-wrap gap-4">
               <div className="p-2 bg-neutral-50 rounded-md">
-                <div className="size-11 bg-indigo-500 rounded-md shadow-sm shadow-neutral-500"></div>
+                <div className="size-11 bg-indigo-500 rounded-md shadow-sm shadow-neutral-500">
+                  <img src="assests/images/figma.jpg" alt="" />
+                </div>
               </div>
               <div className="flex-col items-start flex-1 relative">
                 <p className="font-semibold text-md text-neutral-800">
@@ -248,10 +251,13 @@ export function Card3(){
   )
 }
 
-export function Card4(){
+export function Card4({className =""}){
   return(
     <>
-      <StorageBarChart/>
+      <div className={`${className}`}>
+        <StorageBarChart/>
+      </div>
+      
     </>
   )
 }
