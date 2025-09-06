@@ -99,7 +99,9 @@ export function Card1(){
    return(
       <>
           <div className="relative rounded-lg bg-white p-4 flex gap-4 items-center">
-            <div className="size-10 rounded-md shadow-md bg-indigo-400"></div>
+            <div className="size-10 rounded-md shadow-md ">
+              <img src="assests/images/shiny.webp" alt="" />
+            </div>
             <div className="flex flex-col">
               <CardHeading>Contact with Us</CardHeading>
               <Description>Join us in this dynamic and grow together</Description>
@@ -216,7 +218,9 @@ export function Card2 () {
             <div className="flex flex-wrap justify-between ">
               <div className="flex gap-3">
                 <div className="px-2 py-2 bg-white rounded-md">
-                  <div className="size-8 rounded-md shadow-md bg-indigo-400"></div>
+                  <div className="size-8 rounded-md shadow-md ">
+                  <img src="assests/images/xls.png" alt="" />
+                  </div>
                 </div>
                 <div>
                   <p className="text-md text-neutral-800 font-semibold">
