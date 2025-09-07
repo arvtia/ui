@@ -54,8 +54,8 @@ export default function StorageChart() {
       </div>
 
       <ResponsiveContainer width="100%" height={300} >
-        <BarChart data={data} barSize={10} className="py-3 bg-neutral-100 rounded-lg border-neutral-300">
-          <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#e5e7eb" />
+        <BarChart data={data} barSize={10} className="py-3  rounded-lg border-neutral-300">
+          <CartesianGrid strokeDasharray="3 4" vertical={false} stroke="#e5e7eb" />
           <XAxis dataKey="name" axisLine={false} tickLine={false} />
           <YAxis
             axisLine={false}
@@ -69,7 +69,7 @@ export default function StorageChart() {
             verticalAlign="top"
             align="left"
             iconType="circle"
-            wrapperStyle={{ paddingBottom: "20px" }}
+            wrapperStyle={{ paddingBottom: "29px" }}
           />
           <Bar dataKey="documents" stackId="a" fill="#2563eb" radius={[8, 8, 8, 8]} />
           <Bar dataKey="sound" stackId="a" fill="#a855f7" radius={[8, 8, 8, 8]} />

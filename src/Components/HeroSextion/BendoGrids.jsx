@@ -2,6 +2,7 @@ import { Children } from "react";
 import { motion, percent } from "framer-motion";
 import { useState } from "react";
 import StorageBarChart from "./Charts";
+import { map } from "framer-motion/client";
 
 export const filesData = [
   {
@@ -23,6 +24,23 @@ export const filesData = [
     filesCount: '980'
   }
 ]
+export const fileShared = [
+  {
+    name:"Simon Hempe",
+    email:"no@reply.group.com",
+    img:"assests/images/face1.jpg"
+  },
+  {
+    name:"Nepoliana Giuh",
+    email:"auposic@ingo.org",
+    img:"assests/images/face2.jpg"
+  },
+  {
+    name:"Alberta Kimber",
+    email:"kiberly@notion.org",
+    img:"assests/images/face3.jpg"
+  }
+]
 
 export function MainGrid() {
   return (
@@ -34,13 +52,12 @@ export function MainGrid() {
         </CardsWithIn>
         <CardsWithIn  className="cols-1 ">
           <Card2/>
+          <Card5 className="mt-4"/>
         </CardsWithIn>
         <CardsWithIn className="cols-1">
           {/* <FolderStack/> */}
           <Card3/>
-        </CardsWithIn>
-        <CardsWithIn className="cols-1 row-span-2">
-          
+          <Card6/>
         </CardsWithIn>
       </Grids>
     </BendoGrid>
@@ -93,16 +110,14 @@ export function Grids({ children, className = "" }) {
   );
 }
 
-
-
 export function Card1(){
    return(
       <>
           <div className="relative rounded-lg bg-white p-4 flex gap-4 items-center">
-            <div className="size-10 rounded-md shadow-md ">
+            <div className="size-20 rounded-md shadow-md ">
               <img src="assests/images/shiny.webp" alt="" />
             </div>
-            <div className="flex flex-col">
+            <div className="flex flex-col w-[70%]">
               <CardHeading>Contact with Us</CardHeading>
               <Description>Join us in this dynamic and grow together</Description>
             </div>
@@ -185,7 +200,7 @@ export function Card2 () {
           </div>
         </div>
         {/*  another section below */}
-        <div className="space-y-3">
+        <div className="space-y-2">
           <div className="p-4 bg-neutral-200 rounded-md">
             <div className="flex flex-wrap gap-4">
               <div className="p-2 bg-neutral-50 rounded-md">
@@ -261,7 +276,80 @@ export function Card4({className =""}){
       <div className={`${className}`}>
         <StorageBarChart/>
       </div>
-      
     </>
   )
+}
+
+export function Card5({className =""}) {
+  return(
+    <>
+      <div className={` ${className} w-full h-fit bg-white rounded-md pt-5 px-5`}>
+        <div className="text-3xl text-center py-4 bg-indigo-100 text-neutral-600 font-bold rounded-md">
+          26,<span className="text-neutral-400 font-bold">400%</span>
+        </div>
+        <div className="flex justify-between gap-2 py-3 items-center">
+          <div className="items-center ">
+            <p className="font-bold text-neutral-600">Ready to delete</p>
+            <p className="text-neutral-500 font-bold text-sm">15 files</p>
+          </div>
+          <button className="rounded-md ring-1 ring-red-400 px-3 py-1 text-sm text-red-600 bg-red-200">Delete</button>
+        </div>
+      </div>
+    </>
+  )
+}
+
+export function Card6() {
+  return (
+    <div className="bg-white p-5 rounded-xl shadow-sm border border-neutral-200">
+      {/* Header */}
+      <div className="flex justify-between items-center mb-4">
+        <p className="text-lg font-bold text-neutral-800">Shared Files</p>
+        <button className="text-sm px-3 py-1 rounded-lg bg-neutral-100 text-neutral-600 hover:bg-neutral-200 transition">
+          See all
+        </button>
+      </div>
+
+      {/* List */}
+      <div className="divide-y divide-neutral-200">
+        {fileShared.map((item, idx) => (
+          <div
+            key={idx}
+            className="flex items-center justify-between py-3 hover:bg-neutral-50 transition rounded-lg px-2"
+          >
+            <div className="flex gap-3 items-center">
+              {/* image */}
+              <img
+                src={item.img}
+                alt={item.name}
+                className="w-12 h-12 rounded-md object-cover ring-1 ring-neutral-300"
+              />
+              <div>
+                <p className="text-sm font-semibold text-neutral-800">
+                  {item.name}
+                </p>
+                <p className="text-xs text-neutral-500">{item.email}</p>
+              </div>
+            </div>
+            <i className="bi bi-chevron-right text-neutral-500"></i>
+          </div>
+        ))}
+      </div>
+      {/* copy section  */}
+      <div className="w-full relative rounded-md px-2 py-2">
+        <input
+          type="text"
+          className="w-full bg-neutral-200 h-10 rounded-lg ring-neutral-300 ring-1 pr-16" // <-- add pr-16 so text doesn't overlap button
+        />
+        <button
+          className="h-7 px-3 absolute right-4 top-1/2 -translate-y-1/2 
+                    bg-neutral-50 rounded-lg ring-1 ring-neutral-400 text-sm"
+        >
+          <i className="bi bi-copy"></i> Copy
+        </button>
+      </div>
+
+
+    </div>
+  );
 }
